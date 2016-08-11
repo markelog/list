@@ -51,6 +51,13 @@ type List struct {
 	Cursor  *curse.Cursor
 }
 
+// GetWith will call .New(...); .Show() and returns .Get()
+func GetWith(name string, options []string) string {
+	l := New(name, options)
+	l.Show()
+	return l.Get()
+}
+
 // New returns a list initialized with Default theme.
 func New(name string, options []string) *List {
 	list := &List{}

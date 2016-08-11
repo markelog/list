@@ -2,19 +2,43 @@
 
 > Terminal interactive list
 
-![](./example.gif)
+This
 
 ```go
-func GetAnimal() string {
-	options := []string{"Gangsta panda", "Sexy turtle", "Killa gorilla",}
+options := []string{"Gangsta panda", "Sexy turtle", "Killa gorilla",}
 
-	l := list.New("Which animal is the coolest?", options)
-	l.Show()
+// returns user choice i.e. "Gangsta panda"
+list.GetWith("Which animal is the coolest?, options)
+```
 
-	// Waiting for the user input
-	result := l.Get()
+Will get you
 
-	return result // "Gangsta panda"
-}
+![](./example.gif)
+
+## A bit of flexibility
+
+```go
+options := []string{"Gangsta panda", "Sexy turtle", "Killa gorilla",}
+
+l := list.New("Which animal is the coolest?", options)
+
+// Set your own printer
+l.SetPrint(func(args ...interface{}) (n int, err error) {
+	return fmt.Print(args...)
+})
+
+// Set your own colors
+// With github.com/fatih/color package
+l.SetColors(&list.Colors{
+	Head:      color.New(color.BgRed),
+	Option:    color.New(color.FgGreen, color.Underline),
+	Highlight: color.New(color.FgCyan, color.Bold),
+})
+
+// Show the list
+l.Show()
+
+// Waiting for the user input
+l.Get()
 ```
 
