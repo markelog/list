@@ -23,7 +23,7 @@ type Colors struct {
 var DefaultColors = &Colors{
 	Head:      color.New(color.Bold),
 	Option:    color.New(color.FgWhite),
-	Highlight: color.New(color.Bold, color.FgCyan),
+	Highlight: color.New(color.FgCyan),
 }
 
 const (

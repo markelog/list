@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/markelog/list.svg)](https://travis-ci.org/markelog/list) [![GoDoc](https://godoc.org/github.com/markelog/list?status.svg)](https://godoc.org/github.com/markelog/list) [![Go Report Card](https://goreportcard.com/badge/github.com/markelog/list)](https://goreportcard.com/report/github.com/markelog/list)
+# List [![Build Status](https://travis-ci.org/markelog/list.svg)](https://travis-ci.org/markelog/list) [![GoDoc](https://godoc.org/github.com/markelog/list?status.svg)](https://godoc.org/github.com/markelog/list) [![Go Report Card](https://goreportcard.com/badge/github.com/markelog/list)](https://goreportcard.com/report/github.com/markelog/list)
 
-# List
+> Terminal interactive list
 
-Terminal interactive list
+![](./example.gif)
 
 ```go
 func GetAnimal() string {
@@ -19,4 +19,3 @@ func GetAnimal() string {
 
 ```
 
-![](./example.gif)
