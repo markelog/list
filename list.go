@@ -236,6 +236,8 @@ func (list *List) Exit() {
 	list.Println()
 	list.Println()
 	list.Print(ShowCursor)
+
+	os.Exit(1)
 }
 
 // HighlightUp highlights option above

@@ -2,6 +2,7 @@ package list_test
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/bouk/monkey"
 	. "github.com/onsi/ginkgo"
@@ -122,8 +123,17 @@ var _ = Describe("list", func() {
 	})
 
 	Describe("Exit", func() {
+		var guard *monkey.PatchGuard
+
 		BeforeEach(func() {
+			// Don't exit
+			guard = monkey.Patch(os.Exit, func(int) {})
+
 			l.Exit()
+		})
+
+		AfterEach(func() {
+			guard.Restore()
 		})
 
 		It("should print exiting chars", func() {
