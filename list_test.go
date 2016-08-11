@@ -1,19 +1,14 @@
 package list_test
 
 import (
+	"fmt"
+
+	"github.com/bouk/monkey"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
 	"github.com/markelog/list"
-	"github.com/sethgrid/curse"
-
-	"fmt"
-	"github.com/bouk/monkey"
 )
-
-type Mock struct {
-	*curse.Cursor
-}
 
 var _ = Describe("list", func() {
 	var l *list.List
@@ -73,7 +68,7 @@ var _ = Describe("list", func() {
 	})
 
 	Describe("Enter", func() {
-		It("should clear options", func() {
+		It("should get result after enter", func() {
 			l.Show()
 			result := l.Enter()
 
@@ -96,7 +91,7 @@ var _ = Describe("list", func() {
 			Expect(l.Cursor.Position.Y).To(Equal(-1))
 		})
 
-		It("should go down again, should not change anything", func() {
+		It("should not go down again", func() {
 			l.HighlightDown()
 
 			Expect(l.Index).To(Equal(2))
@@ -117,7 +112,7 @@ var _ = Describe("list", func() {
 			Expect(l.Cursor.Position.Y).To(Equal(-2))
 		})
 
-		It("should go up again, should not change anything", func() {
+		It("should not go up again", func() {
 			l.HighlightUp()
 
 			Expect(l.Index).To(Equal(1))
