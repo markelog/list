@@ -17,10 +17,10 @@ func getChar() (ascii int, keyCode int, err error) {
 		return
 	}
 
-	// Three-character control sequence, beginning with "ESC-["
+	// Three character control sequence, beginning with "ESC-["
 	if numRead == 3 && bytes[0] == 27 && bytes[1] == 91 {
 
-		// Arrows - up, down, left, right kinda stuff
+		// Arrows - up, down, left, right; kinda stuff
 		keyCode = int(bytes[2])
 	} else if numRead == 1 {
 

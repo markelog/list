@@ -6,16 +6,15 @@
 
 ```go
 func GetAnimal() string {
-  options := []string{"Gangsta panda", "Sexy turtle", "Killa gorilla",}
+	options := []string{"Gangsta panda", "Sexy turtle", "Killa gorilla",}
 
-  l := list.New("Which animal is the coolest?", options)
-  l.Show()
+	l := list.New("Which animal is the coolest?", options)
+	l.Show()
 
-  // Waiting for the user input
-  result := l.Get()
+	// Waiting for the user input
+	result := l.Get()
 
-  return result // "Gangsta panda"
+	return result // "Gangsta panda"
 }
-
 ```
 
