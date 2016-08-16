@@ -37,6 +37,7 @@ var _ = Describe("list", func() {
 
 	AfterEach(func() {
 		prints = []string{}
+		monkey.Unpatch(fmt.Printf)
 	})
 
 	Describe("Show", func() {
@@ -123,17 +124,15 @@ var _ = Describe("list", func() {
 	})
 
 	Describe("Exit", func() {
-		var guard *monkey.PatchGuard
-
 		BeforeEach(func() {
 			// Don't exit
-			guard = monkey.Patch(os.Exit, func(int) {})
+			monkey.Patch(os.Exit, func(int) {})
 
 			l.Exit()
 		})
 
 		AfterEach(func() {
-			guard.Restore()
+			monkey.Unpatch(os.Exit)
 		})
 
 		It("should print exiting chars", func() {
