@@ -8,7 +8,7 @@ This
 options := []string{"Gangsta panda", "Sexy turtle", "Killa gorilla",}
 
 // returns user choice i.e. "Gangsta panda"
-list.GetWith("Which animal is the coolest?, options)
+list.GetWith("Which animal is the coolest?", options)
 ```
 
 Will get you
