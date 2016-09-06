@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/fatih/color"
-	"github.com/sethgrid/curse"
+	"github.com/markelog/curse"
 )
 
 // Printer function type used for outputing
