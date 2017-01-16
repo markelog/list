@@ -43,12 +43,12 @@ const (
 
 // List base struct
 type List struct {
-	name    string
 	Index   int
-	colors  *Colors
-	options []string
 	Print   Printer
 	Cursor  *curse.Cursor
+	name    string
+	colors  *Colors
+	options []string
 }
 
 // GetWith will call .New(...); .Show() and returns .Get()
