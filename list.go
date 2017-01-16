@@ -21,7 +21,7 @@ type Colors struct {
 
 // DefaultColors which will be used by default
 var DefaultColors = &Colors{
-	Head:      color.New(color.Bold),
+	Head:      color.New(color.FgWhite, color.Bold),
 	Option:    color.New(color.FgWhite),
 	Highlight: color.New(color.FgCyan),
 }
