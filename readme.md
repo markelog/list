@@ -18,6 +18,15 @@ Will get you
 ## A bit of flexibility
 
 ```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/fatih/color"
+	"github.com/markelog/list"
+)
+
 options := []string{"Gangsta panda", "Sexy turtle", "Killa gorilla",}
 
 l := list.New("Which animal is the coolest?", options)
