@@ -4,6 +4,7 @@ package list
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/fatih/color"
 	"github.com/markelog/curse"
@@ -46,8 +47,10 @@ type List struct {
 	Index   int
 	Print   Printer
 	Cursor  *curse.Cursor
-	name    string
 	colors  *Colors
+	name    string
+	chooser string
+	indent  string
 	options []string
 }
 
@@ -70,8 +73,20 @@ func New(name string, options []string) *List {
 
 	list.SetColors(DefaultColors)
 	list.SetPrint(fmt.Print)
+	list.SetChooser(" ❯ ")
+	list.SetIndent(3)
 
 	return list
+}
+
+// SetChooser sets chooser string i.e. " ❯ "
+func (list *List) SetChooser(chooser string) {
+	list.chooser = chooser
+}
+
+// SetIndent sets indent before options
+func (list *List) SetIndent(indent int) {
+	list.indent = "" + strings.Repeat(" ", indent)
 }
 
 // SetColors sets colors for the output
@@ -86,8 +101,15 @@ func (list *List) SetPrint(print Printer) {
 
 // PrintHighlight prints highlighted list element
 func (list *List) PrintHighlight(element string) int {
+	newIndent := len(list.indent) - 3
+	indent := ""
+
+	if newIndent > 1 {
+		indent = strings.Repeat(" ", newIndent)
+	}
+
 	list.colors.Highlight.Set()
-	bytes, _ := list.Print(" ❯ ", element)
+	bytes, _ := list.Print(indent + list.chooser + element)
 	color.Unset()
 
 	return bytes
@@ -96,7 +118,7 @@ func (list *List) PrintHighlight(element string) int {
 // PrintOption prints list option
 func (list *List) PrintOption(option string) int {
 	list.colors.Option.Set()
-	bytes, _ := list.Print("   ", option)
+	bytes, _ := list.Print(list.indent + option)
 	color.Unset()
 
 	return bytes

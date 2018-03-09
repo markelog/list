@@ -46,11 +46,8 @@ var _ = Describe("list", func() {
 			Expect(prints[0]).To(Equal("\033[?25l"))
 			Expect(prints[1]).To(Equal("test"))
 			Expect(prints[2]).To(Equal("\n"))
-			Expect(prints[3]).To(Equal(" ❯ "))
-			Expect(prints[4]).To(Equal("one"))
-			Expect(prints[5]).To(Equal("\n"))
-			Expect(prints[6]).To(Equal("   "))
-			Expect(prints[7]).To(Equal("two"))
+			Expect(prints[3]).To(Equal(" ❯ one"))
+			Expect(prints[5]).To(Equal("   two"))
 		})
 	})
 
